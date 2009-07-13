@@ -4,4 +4,3 @@
 
 (defn prob-001 []
   (reduce + (filter #(or (multiple-of-3 %) (multiple-of-5 %)) (range 1000))))
-

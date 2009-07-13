@@ -6,7 +6,6 @@
 
 (defn prob-019 []
   (count (for [month (range 1 13)
-	       year (range 1901 2001)
-	       :when (sunday? year month 1)]
-	  true)))
-
+               year (range 1901 2001)
+               :when (sunday? year month 1)]
+           true)))

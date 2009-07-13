@@ -7,5 +7,4 @@
 (defn prob-003 []
   (let [num 600851475143]
     (last (filter #(and (zero? (mod num %)) (prime? %))
-		  (range 1 (+ 1 (sqrt num)))))))
-
+                  (range 1 (+ 1 (sqrt num)))))))

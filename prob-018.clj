@@ -1,6 +1,5 @@
 ;;;;;;;;;; problem 018 input ;;;;;;;;;;
-(def prob-018-input
-     "75
+(def prob-018-input "75
 95 64
 17 47 82
 18 35 87 10
@@ -19,10 +18,9 @@
 ;;;;;;;;;; problem 018 ;;;;;;;;;;
 (defn rollup [a b]
   (vec (for [col (range (count b))]
-	 (+ (b col) (max (a col) (a (inc col)))))))
+         (+ (b col) (max (a col) (a (inc col)))))))
 
 (defn prob-018 []
   (let [triangle (for [row (.split prob-018-input "[\r\n]")]
-		   (vec (map #(Integer. %) (.split row " "))))]
+                   (vec (map #(Integer. %) (.split row " "))))]
     (reduce rollup (reverse triangle))))
-

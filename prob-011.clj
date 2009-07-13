@@ -1,6 +1,5 @@
 ;;;;;;;;;; problem 011 input ;;;;;;;;;;
-(def prob-011-input
-     "08 02 22 97 38 15 00 40 00 75 04 05 07 78 52 12 50 77 91 08
+(def prob-011-input "08 02 22 97 38 15 00 40 00 75 04 05 07 78 52 12 50 77 91 08
 49 49 99 40 17 81 18 57 60 87 17 40 98 43 69 48 04 56 62 00
 81 49 31 73 55 79 14 29 93 71 40 67 53 88 30 03 49 13 36 65
 52 70 95 23 04 60 11 42 69 24 68 56 01 32 56 71 37 02 36 91
@@ -25,13 +24,12 @@
 ;;;;;;;;;; problem 011 ;;;;;;;;;;
 (defn prob-011 []
   (let [input-grid (for [line (.split prob-011-input "[\r\n]")]
-		     (map #(Integer. %) (.split line " ")))]
+                     (map #(Integer. %) (.split line " ")))]
     (reduce max
-	    (for [x (range 20)
-		  y (range 20)
-		  shift-by [[1 0] [1 1] [0 1] [-1 1]]]
-	      (reduce *
-		      (for [xy (take 4 (iterate #(map + % shift-by) [x y]))
-			    :while (every? #(< -1 % 20) xy)]
-			(reduce nth input-grid xy)))))))
-
+            (for [x (range 20)
+                  y (range 20)
+                  shift-by [[1 0] [1 1] [0 1] [-1 1]]]
+              (reduce *
+                      (for [xy (take 4 (iterate #(map + % shift-by) [x y]))
+                            :while (every? #(< -1 % 20) xy)]
+                        (reduce nth input-grid xy)))))))

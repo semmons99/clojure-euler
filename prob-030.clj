@@ -6,6 +6,5 @@
 
 (defn prob-030 []
   (reduce + (for [n (range 2 1000000)
-		  :when (fifth-powers? n)]
-	      n)))
-
+                  :when (fifth-powers? n)]
+              n)))

@@ -5,8 +5,7 @@
 
 (defn prob-009 []
   (first (for [a (range 1 333)
-	       b (range (+ a 1) 500)
-	       :let [c (- 1000 a b)]
-	       :when (triplet? a b c)]
-	   (* a b c))))
-
+               b (range (+ a 1) 500)
+               :let [c (- 1000 a b)]
+               :when (triplet? a b c)]
+           (* a b c))))

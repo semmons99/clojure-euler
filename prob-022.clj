@@ -7,7 +7,6 @@
 
 (defn prob-022 []
   (reduce + (let [names
-		  (vec (sort (map #(.replaceAll % "\"" "") prob-022-input)))]
-	      (for [n (range (count names))]
-		(* (inc n) (name-val (names n)))))))
-
+                  (vec (sort (map #(.replaceAll % "\"" "") prob-022-input)))]
+              (for [n (range (count names))]
+                (* (inc n) (name-val (names n)))))))

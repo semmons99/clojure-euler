@@ -4,4 +4,3 @@
 
 (defn prob-005 []
   (first (filter #(div-by-all %) (iterate #(+ 380 %) 380))))
-

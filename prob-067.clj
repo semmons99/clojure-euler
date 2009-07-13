@@ -104,9 +104,9 @@
 ;;;;;;;;;; problem 067 ;;;;;;;;;;
 (defn rollup [a b]
   (vec (for [col (range (count b))]
-	 (+ (b col) (max (a col) (a (inc col)))))))
+         (+ (b col) (max (a col) (a (inc col)))))))
 
 (defn prob-067 []
   (let [triangle (for [row (.split prob-067-input "[\r\n]")]
-		   (vec (map #(Integer. %) (.split row " "))))]
+                   (vec (map #(Integer. %) (.split row " "))))]
     (reduce rollup (reverse triangle))))

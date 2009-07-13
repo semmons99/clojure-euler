@@ -3,5 +3,4 @@
 (defn prob-006 []
   (let [nums (range 1 101)]
     (int (- (expt (reduce + nums) 2)
-	    (reduce + (map #(expt % 2) nums))))))
-
+            (reduce + (map #(expt % 2) nums))))))

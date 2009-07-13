@@ -5,9 +5,8 @@
 
 (defn factors [n]
   (reduce into (for [x (range 1 (inc (sqrt n)))
-		     :when (zero? (mod n x))]
-		 [x (/ n x)])))
+                     :when (zero? (mod n x))]
+                 [x (/ n x)])))
 
 (defn prob-012 []
   (first (filter #(< 500 (count (factors %))) (triangles))))
-

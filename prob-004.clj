@@ -5,7 +5,6 @@
 (defn prob-004 []
   (let [nums (range 100 1000)]
     (reduce max (for [x nums
-		      y nums
-		      :when (palindrome? (* x y))]
-		  (* x y)))))
-
+                      y nums
+                      :when (palindrome? (* x y))]
+                  (* x y)))))

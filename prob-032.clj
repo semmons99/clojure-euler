@@ -4,8 +4,7 @@
 
 (defn prob-032 []
   (reduce + (distinct (for [a (range 2 5000)
-			    b (range a (/ 9999 a))
-			    :let [c (* a b)]
-			    :when (pandigital? a b c)]
-			c))))
-
+                            b (range a (/ 9999 a))
+                            :let [c (* a b)]
+                            :when (pandigital? a b c)]
+                        c))))
