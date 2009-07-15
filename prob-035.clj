@@ -1,14 +1,15 @@
 ;;;;;;;;;; problem 035 ;;;;;;;;;;
-(use '[clojure.contrib.seq-utils :only (includes?)])
-
 (defn prime? [n]
   (cond
     (< n 2) false
-    (= n 2) true
-    (= n 3) true
+    (< n 4) true
     (even? n) false
-    :else (if (includes? (for [x (range 3 (+ (Math/sqrt n) 2))]
-            (zero? (mod n x))) true) false true)))
+    :else (let [lim (inc (Math/sqrt n))]
+            (loop [x 3]
+              (cond
+                (> x lim) true
+                (zero? (mod n x)) false
+                :else (recur (inc x)))))))
 
 (defn circulate
   ([n] (circulate n [n]))

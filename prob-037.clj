@@ -1,16 +1,17 @@
 ;;;;;;;;;; problem 037 ;;;;;;;;;;
-(use '[clojure.contrib.lazy-seqs :only (primes)]
-     '[clojure.contrib.seq-utils :only (includes?)])
+(use '[clojure.contrib.lazy-seqs :only (primes)])
 
 (defn prime? [n]
   (cond
     (< n 2) false
-    (= n 2) true
-    (= n 3) true
+    (< n 4) true
     (even? n) false
-    :else (if (includes? (for [x (range 3 (+ (Math/sqrt n) 2))]
-            (zero? (mod n x))) true) false true)))
-(def prime? (memoize prime?))
+    :else (let [lim (inc (Math/sqrt n))]
+            (loop [x 3]
+              (cond
+                (> x lim) true
+                (zero? (mod n x)) false
+                :else (recur (inc x)))))))
 
 (defn rrest [s]
   (rest (rest s)))
