@@ -1,7 +1,16 @@
 ;;;;;;;;;; problem 037 ;;;;;;;;;;
 (use '[clojure.contrib.lazy-seqs :only (primes)]
      '[clojure.contrib.seq-utils :only (includes?)])
-(defn prime? [n] (includes? (take-while #(<= % n) primes) n))
+
+(defn prime? [n]
+  (cond
+    (< n 2) false
+    (= n 2) true
+    (= n 3) true
+    (even? n) false
+    :else (if (includes? (for [x (range 3 (+ (Math/sqrt n) 2))]
+            (zero? (mod n x))) true) false true)))
+(def prime? (memoize prime?))
 
 (defn rrest [s]
   (rest (rest s)))
@@ -20,7 +29,7 @@
 
 (defn prob-037 []
   (reduce + (take 11 (for [n primes
-                           :when (and (> n 10)
-                                      (every? prime? (truncate n :right))
-                                      (every? prime? (truncate n :left)))]
-                       n))))
+                        :when (and (> n 10)
+                                   (every? prime? (truncate n :right))
+                                   (every? prime? (truncate n :left)))]
+                    n))))

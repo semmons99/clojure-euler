@@ -1,7 +1,14 @@
 ;;;;;;;;;; problem 035 ;;;;;;;;;;
-(use '[clojure.contrib.lazy-seqs :only (primes)]
-     '[clojure.contrib.seq-utils :only (includes?)])
-(defn prime? [n] (includes? (take-while #(<= % n) primes) n))
+(use '[clojure.contrib.seq-utils :only (includes?)])
+
+(defn prime? [n]
+  (cond
+    (< n 2) false
+    (= n 2) true
+    (= n 3) true
+    (even? n) false
+    :else (if (includes? (for [x (range 3 (+ (Math/sqrt n) 2))]
+            (zero? (mod n x))) true) false true)))
 
 (defn circulate
   ([n] (circulate n [n]))
@@ -16,4 +23,4 @@
   (every? prime? (circulate n)))
 
 (defn prob-035 []
-  (count (filter circular-prime? (take-while #(<= % 1000000) primes))))
+  (count (filter #(and (prime? %) (circular-prime? %)) (range 1 1000000))))

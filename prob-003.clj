@@ -1,8 +1,14 @@
 ;;;;;;;;;; problem 003 ;;;;;;;;;;
-(use '[clojure.contrib.lazy-seqs :only (primes)]
-     '[clojure.contrib.seq-utils :only (includes?)]
+(use '[clojure.contrib.seq-utils :only (includes?)]
      '[clojure.contrib.math :only (sqrt)])
-(defn prime? [n] (includes? (take-while #(<= % n) primes) n))
+(defn prime? [n]
+  (cond
+    (< n 2) false
+    (= n 2) true
+    (= n 3) true
+    (even? n) false
+    :else (if (includes? (for [x (range 3 (+ (Math/sqrt n) 2))]
+            (zero? (mod n x))) true) false true)))
 
 (defn prob-003 []
   (let [num 600851475143]
