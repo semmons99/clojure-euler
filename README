@@ -1,3 +1,6 @@
 Project Name: clojure-euler
 Description: Solving Project Euler problems using Clojure
-Programmer: Shane Emmons (semmons99 AT gmail DOT com)
+Programmer: Shane Emmons
+
+make sure the current directory is on your classpath to use the functions in
+"clojure.euler.helpers".
