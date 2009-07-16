@@ -4,9 +4,9 @@
 ;;;;;;;;;; problem 042 ;;;;;;;;;;
 (use '[clojure.contrib.seq-utils :only (includes?)])
 
-(defn next-triangle [n] (* (/ 1 2) n (inc n)))
+(defn nth-triangle [n] (* (/ 1 2) n (inc n)))
 
-(defn triangles [] (map next-triangle (iterate inc 1)))
+(defn triangles [] (map nth-triangle (iterate inc 1)))
 
 (defn is-triangle? [n] (includes? (take-while #(<= % n) (triangles)) n))
 
