@@ -1,4 +1,6 @@
 ;;;;;;;;;; problem 028 ;;;;;;;;;;
+(use '[clojure.contrib.seq-utils :only (flatten)])
+
 (defn prob-028 []
   (inc (reduce + (flatten
                    (for [n (range 3 1002 2)
