@@ -11,3 +11,4 @@
                 (> x lim) true
                 (zero? (mod n x)) false
                 :else (recur (inc x)))))))
+(def prime? (memoize prime?))
