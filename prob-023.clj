@@ -1,6 +1,7 @@
 ;;;;;;;;;; problem 023 ;;;;;;;;;;
 (use '[clojure.contrib.math :only (sqrt)]
      '[clojure.contrib.seq-utils :only (flatten)])
+
 (defn divisors [n]
   (cons 1 (distinct (flatten (for [x (range 2 (inc (sqrt n)))
                                    :when (zero? (mod n x))]

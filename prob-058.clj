@@ -1,6 +1,5 @@
 ;;;;;;;;;; problem 058 ;;;;;;;;;;
-(use '[clojure.contrib.seq-utils :only (flatten frequencies)]
-     '[clojure.euler.helpers :only (prime?)])
+(use '[clojure.euler.helpers :only (prime?)])
 
 (defn next-spiral [entry]
   (let [sides (+ (entry :sides) 2)

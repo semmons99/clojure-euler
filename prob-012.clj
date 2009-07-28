@@ -1,5 +1,6 @@
 ;;;;;;;;;; problem 012 ;;;;;;;;;;
 (use '[clojure.contrib.math :only (sqrt)])
+
 (defn triangles []
   (map #(reduce + (range %)) (iterate inc 2)))
 

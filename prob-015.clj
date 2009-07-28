@@ -1,5 +1,4 @@
 ;;;;;;;;;; problem 015 (pascal's triangle) ;;;;;;;;;;
-(use '[clojure.contrib.math :only (expt)])
 (defn factorial [n]
   (reduce * (range 1 (inc n))))
 

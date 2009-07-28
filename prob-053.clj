@@ -1,5 +1,4 @@
 ;;;;;;;;;; problem 053 ;;;;;;;;;;
-(use '[clojure.contrib.math :only (expt)])
 (defn factorial [n]
   (reduce * (range 1 (inc n))))
 

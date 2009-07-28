@@ -1,5 +1,6 @@
 ;;;;;;;;;; problem 021 ;;;;;;;;;;
 (use '[clojure.contrib.math :only (sqrt)])
+
 (defn dn [n]
   (inc (reduce + (for [x (range 2 (sqrt n))
                        :when (zero? (mod n x))]

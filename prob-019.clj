@@ -1,5 +1,6 @@
 ;;;;;;;;;; problem 019 ;;;;;;;;;;
 (import '(java.util Calendar GregorianCalendar))
+
 (defn sunday? [year month day]
   (= Calendar/SUNDAY
      (.get (GregorianCalendar. year (dec month) day) Calendar/DAY_OF_WEEK)))

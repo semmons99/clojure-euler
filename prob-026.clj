@@ -1,5 +1,6 @@
 ;;;;;;;;;; problem 026 ;;;;;;;;;;
 (use '[clojure.contrib.math :only (expt)])
+
 (defn order [a n]
   (first (filter #(= 1 (mod (expt a %) n)) (iterate inc 1))))
 

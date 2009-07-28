@@ -1,6 +1,5 @@
 ;;;;;;;;;; problem 049 ;;;;;;;;;;
-(use '[clojure.euler.helpers :only (prime?)]
-     '[clojure.contrib.combinatorics :only (combinations)])
+(use '[clojure.euler.helpers :only (prime?)])
 
 (defn interesting? [coll]
     (if (and (= (- (coll :c) (coll :b)) (- (coll :b) (coll :a)))

@@ -1,5 +1,6 @@
 ;;;;;;;;;; problem 030 ;;;;;;;;;;
 (use '[clojure.contrib.math :only (expt)])
+
 (defn fifth-powers? [n]
   (let [nums (map #(Integer. %) (rest (.split (str n) "")))]
     (= n (reduce + (map #(expt % 5) nums)))))

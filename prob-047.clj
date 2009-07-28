@@ -1,8 +1,9 @@
 ;;;;;;;;;; problem 047 ;;;;;;;;;;
-(use '[clojure.euler.helpers :only (prime?)])
+(use '[clojure.euler.helpers :only (prime?)]
+     '[clojure.contrib.math :only (sqrt)])
 
 (defn factors [n]
-  (reduce into (for [x (range 1 (inc (Math/sqrt n)))
+  (reduce into (for [x (range 1 (inc (sqrt n)))
                      :when (zero? (mod n x))]
                  [x (/ n x)])))
 

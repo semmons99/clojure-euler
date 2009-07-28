@@ -1,7 +1,6 @@
 ;;;;;;;;;; problem 061 ;;;;;;;;;;
 (use '[clojure.euler.helpers :only (triangle? square? pentagonal? hexagonal?
-                                              heptagonal? octagonal?)]
-     '[clojure.contrib.seq-utils :only (includes?)])
+                                              heptagonal? octagonal?)])
 
 (defn from-cyclical [n]
   (Integer. (str (subs (str n) 2) "00")))
